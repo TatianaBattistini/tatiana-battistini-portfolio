@@ -1,0 +1,401 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Courier New", monospace;
+    background: #123456;
+    color: #111;
+}
+
+.desktop {
+    min-height: 100vh;
+    padding: 40px;
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #00aaff 0%,
+            #0055aa 40%,
+            #001133 100%
+        );
+}
+
+.window {
+    background: #d8d1c3;
+    border: 3px solid #111;
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.4);
+    animation: openWindow 0.5s ease;
+}
+
+.title-bar {
+    background: #061a70;
+    color: white;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-bar button {
+    font-family: inherit;
+    font-weight: bold;
+}
+
+.main-window {
+    width: 680px;
+    margin: 80px auto 0;
+}
+
+.window-content {
+    padding: 32px;
+}
+
+h1 {
+    font-size: 56px;
+    margin: 0;
+}
+
+h2 {
+    color: #2f6b3f;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.buttons button,
+.taskbar button {
+    font-family: inherit;
+    font-weight: bold;
+    padding: 14px;
+    background: #c7c1b3;
+    border: 2px solid #111;
+    box-shadow: 3px 3px 0 #777;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 #555;
+}
+
+.terminal {
+    width: 360px;
+    position: absolute;
+    right: 40px;
+    top: 60px;
+    background: #001100;
+    color: #00ff66;
+}
+
+.terminal-content {
+    padding: 18px;
+}
+
+.taskbar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #c7c1b3;
+    border-top: 3px solid white;
+    padding: 8px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.clock {
+    margin-left: auto;
+}
+
+.desktop-icons {
+    position: absolute;
+    top: 40px;
+    left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.desktop-icon {
+    width: 100px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-family: inherit;
+    cursor: pointer;
+    text-align: center;
+}
+
+.desktop-icon span {
+    font-size: 42px;
+    display: block;
+}
+
+.desktop-icon p {
+    margin: 4px 0 0;
+    font-size: 12px;
+    text-shadow: 1px 1px 2px black;
+}
+
+.desktop-icon:hover {
+    background: rgba(255, 255, 255, 0.18);
+    outline: 1px dotted white;
+}
+
+.hidden {
+    display: none;
+}
+
+.profile-window {
+    width: 500px;
+    position: absolute;
+    top: 250px;
+    left: 120px;
+}
+
+@keyframes openWindow {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.projects-window {
+    width: 620px;
+    position: absolute;
+    top: 180px;
+    left: 180px;
+}
+
+.project-card {
+    border: 2px solid #111;
+    padding: 14px;
+    margin-bottom: 14px;
+    background: #c7c1b3;
+}
+
+.project-card h3 {
+    margin-top: 0;
+}
+.data-window {
+    width: 640px;
+    position: absolute;
+    top: 220px;
+    left: 240px;
+}
+
+.data-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.data-card {
+    border: 2px solid #111;
+    background: #c7c1b3;
+    padding: 14px;
+}
+
+.data-card h3 {
+    margin-top: 0;
+    color: #2f6b3f;
+}
+.stack-window {
+    width: 550px;
+    position: absolute;
+    top: 120px;
+    left: 350px;
+}
+
+.skill {
+    margin-bottom: 18px;
+}
+
+.skill span {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.bar {
+    height: 24px;
+    border: 2px solid #111;
+    background: #c7c1b3;
+}
+
+.fill {
+    height: 100%;
+    background: #2f6b3f;
+}
+
+.fill80 {
+    width: 80%;
+}
+
+.fill60 {
+    width: 60%;
+}
+
+.fill50 {
+    width: 50%;
+}
+
+.title-bar {
+    cursor: move;
+    user-select: none;
+}
+
+#bootScreen{
+    position:fixed;
+    inset:0;
+
+    background:black;
+
+    color:#00ff66;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    z-index:99999;
+
+    font-family:"Courier New", monospace;
+}
+
+.boot-content{
+    text-align:left;
+    line-height:1.8;
+}
+
+.hidden-desktop{
+    display:none;
+}
+/* ========================= */
+/* CRT EFFECT */
+/* ========================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.03),
+            rgba(255,255,255,0.03) 1px,
+            transparent 1px,
+            transparent 3px
+        );
+
+    z-index: 9998;
+}
+
+body::after {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    background: radial-gradient(
+        circle,
+        transparent 60%,
+        rgba(0,0,0,0.25) 100%
+    );
+
+    z-index: 9997;
+}
+.contact-window {
+    width: 480px;
+    position: absolute;
+    top: 260px;
+    left: 420px;
+}
+
+.contact-list {
+    border: 2px solid #111;
+    background: #c7c1b3;
+    padding: 14px;
+    margin: 18px 0;
+}
+
+.copy-message {
+    color: #2f6b3f;
+    font-weight: bold;
+}
+.window:not(.hidden) {
+    animation: windowOpen 0.22s ease-out;
+}
+
+@keyframes windowOpen {
+    0% {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.03);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.icon-img{
+    display:block;
+    font-size:32px;
+    margin-bottom:6px;
+
+    transition:all .15s ease;
+}
+
+.desktop-icon:hover .icon-img{
+    transform:scale(1.15);
+}
+
+.desktop-icon:hover{
+    background:rgba(255,255,255,0.08);
+}
+.start-menu {
+    position: fixed;
+    bottom: 48px;
+    left: 8px;
+    width: 220px;
+    background: #d8d1c3;
+    border: 2px solid #111;
+    box-shadow: 4px 4px 0 #111;
+    padding: 8px;
+    z-index: 9999;
+}
+
+.start-menu button {
+    display: block;
+    width: 100%;
+    margin-bottom: 6px;
+    padding: 8px;
+    text-align: left;
+    font-family: inherit;
+    border: 2px solid #111;
+    background: #eee8d8;
+    cursor: pointer;
+}

@@ -1,0 +1,370 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BATTISTINI.EXE</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div id="bootScreen">
+
+    <div class="boot-content">
+
+        <h1>BATTISTINI.EXE</h1>
+
+        <p>Version 1.0</p>
+
+        <p>Build 1988</p>
+
+        <br>
+
+        <p>Initializing system...</p>
+
+        <p>Loading Profile...</p>
+
+        <p>Loading Projects...</p>
+
+        <p>Loading Data Core...</p>
+
+        <p>Loading Stack...</p>
+
+        <br>
+
+        <p>System Online.</p>
+
+    </div>
+
+</div>
+
+    <main class="desktop hidden-desktop">
+
+        <div class="desktop-icons">
+            <button class="desktop-icon" onclick="abrirPerfil()">
+    <span class="icon-img">🖥️</span>
+    <p>PERFIL.EXE</p>
+</button>
+
+<button class="desktop-icon" onclick="abrirProjetos()">
+    <span class="icon-img">📁</span>
+    <p>PROJETOS.EXE</p>
+</button>
+
+<button class="desktop-icon" onclick="abrirDataCore()">
+    <span class="icon-img">💾</span>
+    <p>DATA_CORE.EXE</p>
+</button>
+
+<button class="desktop-icon" onclick="abrirStack()">
+    <span class="icon-img">⚙️</span>
+    <p>STACK.EXE</p>
+</button>
+
+<button class="desktop-icon" onclick="abrirContato()">
+    <span class="icon-img">✉️</span>
+    <p>CONTATO.EXE</p>
+</button>
+        </div>
+
+        <section class="window main-window">
+            <div class="title-bar">
+                <span>BATTISTINI.EXE</span>
+                <div>
+                    <button>_</button>
+                    <button>□</button>
+                    <button>X</button>
+                </div>
+            </div>
+
+            <div class="window-content">
+                <h1>BATTISTINI.EXE</h1>
+                <h2>Tatiana Battistini Teixeira</h2>
+
+                <p>
+                    Transformando informação em soluções através de software,
+                    bancos de dados e IA.
+                </p>
+
+                <div class="buttons">
+                    <button onclick="abrirPerfil()">PERFIL.EXE</button>
+                    <button onclick="abrirProjetos()">PROJETOS.EXE</button>
+                    <button onclick="abrirDataCore()">DATA_CORE.EXE</button>
+                    <button onclick="abrirStack()">STACK.EXE</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="window terminal">
+            <div class="title-bar">
+                <span>TERMINAL.TXT</span>
+                <button>X</button>
+            </div>
+
+            <div class="terminal-content">
+                <p id="terminal-text"></p>
+            </div>
+        </section>
+
+        <section class="window profile-window hidden" id="perfilWindow">
+            <div class="title-bar">
+                <span>PERFIL.EXE</span>
+                <button onclick="fecharPerfil()">X</button>
+            </div>
+
+            <div class="window-content">
+                <h2>Tatiana Battistini Teixeira</h2>
+                <p>Estudante de Engenharia de Software.</p>
+                <p>Transição de carreira para tecnologia.</p>
+                <p>Interesse em Arquitetura de Dados, Banco de Dados e Inteligência Artificial.</p>
+                <p>Atualmente desenvolvendo projetos próprios e construindo portfólio.</p>
+            </div>
+        </section>
+
+        <section class="window projects-window hidden" id="projetosWindow">
+            <div class="title-bar">
+                <span>PROJETOS.EXE</span>
+                <button onclick="fecharProjetos()">X</button>
+            </div>
+
+            <div class="window-content">
+                <h2>Projetos</h2>
+
+                <div class="project-card">
+                    <h3>DIRIGINDO_SEM_MEDO.EXE</h3>
+                    <p>Site institucional desenvolvido para um centro de treinamento voltado a pessoas com medo de dirigir.</p>
+                    <p><strong>Status:</strong> em desenvolvimento</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>BATTISTINI.EXE</h3>
+                    <p>Portfólio pessoal em formato de sistema operacional retrô, desenvolvido com HTML, CSS e JavaScript.</p>
+<p><strong>Status:</strong> em construção</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>FACULDADE.EXE</h3>
+                    <p>Projetos acadêmicos desenvolvidos durante a graduação em Engenharia de Software.</p>
+                    <p><strong>Status:</strong> em andamento</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="window data-window hidden" id="dataCoreWindow">
+            <div class="title-bar">
+                <span>DATA_CORE.EXE</span>
+                <button onclick="fecharDataCore()">X</button>
+            </div>
+
+            <div class="window-content">
+                <h2>Data Core</h2>
+
+                <p>
+                    Área dedicada aos estudos e interesses em dados,
+                    banco de dados, arquitetura de dados e inteligência artificial.
+                </p>
+
+                <div class="data-grid">
+                    <div class="data-card">
+                        <h3>SQL</h3>
+                        <p>Consultas, filtros, relacionamentos e organização de dados.</p>
+                    </div>
+
+                    <div class="data-card">
+                        <h3>Banco de Dados</h3>
+                        <p>Estruturação, armazenamento e recuperação de informações.</p>
+                    </div>
+
+                    <div class="data-card">
+                        <h3>Arquitetura de Dados</h3>
+                        <p>Interesse em modelagem, organização e fluxo de dados.</p>
+                    </div>
+
+                    <div class="data-card">
+                        <h3>Inteligência Artificial</h3>
+                        <p>Estudo do uso de dados para apoiar soluções inteligentes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="window stack-window hidden" id="stackWindow">
+            <div class="title-bar">
+                <span>STACK.EXE</span>
+                <button onclick="fecharStack()">X</button>
+            </div>
+
+            <div class="window-content">
+                <h2>Stack Tecnológica</h2>
+
+                <div class="skill">
+                    <span>HTML</span>
+                    <div class="bar">
+                        <div class="fill fill80"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <span>CSS</span>
+                    <div class="bar">
+                        <div class="fill fill80"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <span>JavaScript</span>
+                    <div class="bar">
+                        <div class="fill fill60"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <span>C</span>
+                    <div class="bar">
+                        <div class="fill fill50"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <span>SQL</span>
+                    <div class="bar">
+                        <div class="fill fill60"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <span>Git / GitHub</span>
+                    <div class="bar">
+                        <div class="fill fill60"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <span>Linux</span>
+                    <div class="bar">
+                        <div class="fill fill50"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="window contact-window hidden" id="contatoWindow">
+
+    <div class="title-bar">
+        <span>CONTATO.EXE</span>
+        <button onclick="fecharContato()">X</button>
+    </div>
+
+    <div class="window-content">
+
+        <h2>Contato</h2>
+
+        <p>Vamos conectar?</p>
+
+        <div class="contact-list">
+
+            <p>
+                <strong>GitHub:</strong><br>
+                github.com/TatianaBattistini
+            </p>
+
+            <p>
+                <strong>LinkedIn:</strong><br>
+                linkedin.com/in/tatiana-battistini
+            </p>
+
+            <p>
+                <strong>E-mail:</strong><br>
+                battistini.t@gmail.com
+            </p>
+
+        </div>
+
+        <button onclick="copiarEmail()">
+            COPIAR E-MAIL
+        </button>
+
+        <p id="copyMessage" class="copy-message"></p>
+
+    </div>
+
+</section>
+
+<section class="window hidden" id="entrevistaWindow">
+    <div class="title-bar">
+        <span>ENTREVISTA.EXE</span>
+        <button onclick="fecharEntrevista()">X</button>
+    </div>
+
+    <div class="window-content">
+        <h2>PROCESSO SELETIVO</h2>
+
+        <p><strong>Pergunta 1:</strong></p>
+
+        <p>
+            Por que deseja trabalhar com tecnologia?
+        </p>
+
+        <textarea
+            style="width:100%; height:80px;"
+            placeholder="Digite sua resposta..."
+        ></textarea>
+
+        <br><br>
+
+        <button onclick="mostrarResultadoEntrevista()">
+            ENVIAR RESPOSTA
+        </button>
+
+        <p id="resultadoEntrevista"></p>
+    </div>
+</section>
+
+<section class="window hidden" id="contratacaoWindow">
+    <div class="title-bar">
+        <span>CONTRATACAO.EXE</span>
+        <button onclick="fecharContratacao()">X</button>
+    </div>
+
+    <div class="window-content">
+        <h2>PROCESSO DE CONTRATAÇÃO</h2>
+
+        <p>Analisando candidata...</p>
+
+        <pre>
+[██████████] 100%
+        </pre>
+
+        <p>✓ SQL</p>
+        <p>✓ Python</p>
+        <p>✓ Git</p>
+        <p>✓ Linux</p>
+        <p>✓ Engenharia de Software</p>
+
+        <h3 style="color: green;">
+            CONTRATAÇÃO RECOMENDADA
+        </h3>
+    </div>
+</section>
+
+        <footer class="taskbar">
+    <button onclick="toggleMenu()">Iniciar</button>
+
+    <div id="startMenu" class="start-menu hidden">
+        <button onclick="abrirContratacao()">Contratacao.exe</button>
+<button onclick="abrirEntrevista()">Entrevista.exe</button>
+    </div>
+
+    <span>BATTISTINI.EXE - Portfólio</span>
+    <span class="clock"></span>
+</footer>
+
+    </main>
+
+    <audio id="clickSound" src="assets/sounds/click.mp3" preload="audio"><audio>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
