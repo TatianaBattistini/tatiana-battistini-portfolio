@@ -403,30 +403,67 @@ body::after {
     display: none;
 }
 
+.mobile-site {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .desktop,
-    .taskbar {
-        display: none;
+    .taskbar,
+    #bootScreen {
+        display: none !important;
     }
 
-    .mobile-warning {
+    body {
+        background: #0f2747;
+        margin: 0;
+    }
+
+    .mobile-site {
         display: flex;
         min-height: 100vh;
-        padding: 30px;
-        background: #0f2747;
-        color: #f5f5f5;
-        font-family: "Courier New", monospace;
+        padding: 24px;
         align-items: center;
         justify-content: center;
+        font-family: "Courier New", monospace;
+    }
+
+    .mobile-card {
+        background: #d8d1c3;
+        border: 3px solid #111;
+        box-shadow: 8px 8px 0 #111;
+        padding: 24px;
+        width: 100%;
+        max-width: 420px;
         text-align: center;
     }
 
-    .mobile-warning div {
-        background: #d8d1c3;
+    .mobile-card h1 {
+        margin-bottom: 10px;
         color: #111;
-        border: 3px solid #111;
-        box-shadow: 6px 6px 0 #111;
-        padding: 24px;
-        max-width: 360px;
+        font-size: 32px;
+    }
+
+    .mobile-card h2 {
+        color: #2f6b3f;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .mobile-card p {
+        font-size: 15px;
+        line-height: 1.5;
+        margin-bottom: 24px;
+    }
+
+    .mobile-card button {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 12px;
+        background: #eee8d8;
+        border: 2px solid #111;
+        box-shadow: 3px 3px 0 #111;
+        font-family: inherit;
+        font-weight: bold;
     }
 }
