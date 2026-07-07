@@ -467,3 +467,19 @@ body::after {
         font-weight: bold;
     }
 }
+
+.mobile-content {
+    margin-top: 20px;
+    padding: 16px;
+    background: #f5f0df;
+    border: 2px solid #111;
+    box-shadow: 4px 4px 0 #111;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.mobile-content h3 {
+    margin-top: 0;
+    color: #2f6b3f;
+}

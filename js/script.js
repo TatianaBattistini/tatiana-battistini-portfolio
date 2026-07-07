@@ -218,3 +218,45 @@ function mostrarResultadoEntrevista() {
     document.getElementById("resultadoEntrevista").innerHTML =
         "<br><strong>RESULTADO:</strong><br><br>APROVADA PARA A PRÓXIMA ETAPA ✔";
 }
+
+function mostrarMobile(secao) {
+    const conteudo = document.getElementById("mobileContent");
+
+    const textos = {
+        perfil: `
+            <h3>PERFIL.EXE</h3>
+            <p>Sou Tatiana Battistini Teixeira, estudante de Engenharia de Software, em transição para a área de tecnologia.</p>
+            <p>Tenho interesse em desenvolvimento, banco de dados, lógica de programação e criação de soluções digitais.</p>
+        `,
+
+        projetos: `
+            <h3>PROJETOS.EXE</h3>
+            <p><strong>BATTISTINI.EXE</strong></p>
+            <p>Portfólio interativo inspirado no Windows 95, desenvolvido com HTML, CSS e JavaScript.</p>
+        `,
+
+        data: `
+            <h3>DATA_CORE.EXE</h3>
+            <p>Interesse em banco de dados, organização de informações, análise de dados e construção de soluções orientadas por dados.</p>
+        `,
+
+        stack: `
+            <h3>STACK.EXE</h3>
+            <p>HTML, CSS, JavaScript, C, Git, GitHub, lógica de programação e banco de dados.</p>
+        `,
+
+        contato: `
+            <h3>CONTATO.EXE</h3>
+            <p>E-mail: battistini.t@gmail.com</p>
+            <p>GitHub: TatianaBattistini</p>
+        `,
+
+        contratacao: `
+            <h3>CONTRATACAO.EXE</h3>
+            <p>Processo analisado.</p>
+            <p><strong>CONTRATAÇÃO RECOMENDADA.</strong></p>
+        `
+    };
+
+    conteudo.innerHTML = textos[secao];
+}
