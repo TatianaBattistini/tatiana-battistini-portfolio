@@ -408,78 +408,52 @@ body::after {
 }
 
 @media (max-width: 768px) {
-    .desktop,
-    .taskbar,
-    #bootScreen {
-        display: none !important;
-    }
-
-    body {
-        background: #0f2747;
-        margin: 0;
-    }
-
-    .mobile-site {
-        display: flex;
-        min-height: 100vh;
-        padding: 24px;
-        align-items: center;
-        justify-content: center;
-        font-family: "Courier New", monospace;
-    }
-
-    .mobile-card {
-        background: #d8d1c3;
-        border: 3px solid #111;
-        box-shadow: 8px 8px 0 #111;
-        padding: 24px;
-        width: 100%;
-        max-width: 420px;
-        text-align: center;
-    }
-
-    .mobile-card h1 {
-        margin-bottom: 10px;
-        color: #111;
+    h1 {
         font-size: 32px;
     }
 
-    .mobile-card h2 {
-        color: #2f6b3f;
-        font-size: 18px;
-        margin-bottom: 20px;
+    .window, 
+    .main-window, 
+    .profile-window, 
+    .projects-window, 
+    .data-window, 
+    .stack-window, 
+    .contact-window,
+    #entrevistaWindow,
+    #contratacaoWindow {
+        width: 90% !important;
+        left: 5% !important;
+        top: 20px !important; 
+        margin: 0 !important;
+        position: absolute !important;
+        max-height: 80vh; 
+        overflow-y: auto; 
     }
 
-    .mobile-card p {
-        font-size: 15px;
-        line-height: 1.5;
-        margin-bottom: 24px;
+    .buttons {
+        grid-template-columns: 1fr;
     }
 
-    .mobile-card button {
-        width: 100%;
-        margin-bottom: 10px;
-        padding: 12px;
-        background: #eee8d8;
-        border: 2px solid #111;
-        box-shadow: 3px 3px 0 #111;
-        font-family: inherit;
-        font-weight: bold;
+    .data-grid {
+        grid-template-columns: 1fr;
     }
-}
 
-.mobile-content {
-    margin-top: 20px;
-    padding: 16px;
-    background: #f5f0df;
-    border: 2px solid #111;
-    box-shadow: 4px 4px 0 #111;
-    text-align: left;
-    font-size: 14px;
-    line-height: 1.5;
-}
+    .terminal {
+        display: none !important;
+    }
 
-.mobile-content h3 {
-    margin-top: 0;
-    color: #2f6b3f;
+    .desktop-icons {
+        top: 20px;
+        left: 10px;
+        gap: 15px;
+    }
+
+    .desktop-icon span {
+        font-size: 32px;
+    }
+
+    .start-menu {
+        bottom: 55px;
+        width: 200px;
+    }
 }
