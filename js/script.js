@@ -60,11 +60,8 @@ function abrirJanela(id) {
     const janela = document.getElementById(id);
 
     if (janela) {
-        janela.classList.add("hidden");
-
-        setTimeout(function () {
-            janela.classList.remove("hidden");
-        }, 10);
+        janela.classList.remove("hidden");
+        trazerParaFrente(janela);
     }
 }
 
@@ -115,18 +112,19 @@ janelas.forEach(function (janela) {
 });
 
 window.addEventListener("load", () => {
-
     setTimeout(() => {
+        const bootScreen = document.getElementById("bootScreen");
+        if (bootScreen) {
+            bootScreen.style.display = "none";
+        }
 
-        document.getElementById("bootScreen").style.display = "none";
-
-        document
-            .querySelector(".desktop")
-            .classList.remove("hidden-desktop");
-
+        const desktop = document.querySelector(".desktop");
+        if (desktop) {
+            desktop.classList.remove("hidden-desktop");
+        }
     }, 3000);
-
 });
+
 const terminalText = document.getElementById("terminal-text");
 
 const mensagens = [
@@ -142,36 +140,27 @@ const mensagens = [
 let linhaAtual = 0;
 
 function escreverTerminal() {
-
     if (!terminalText) return;
 
     terminalText.innerHTML = "";
-
     linhaAtual = 0;
 
     const intervalo = setInterval(() => {
-
         terminalText.innerHTML += mensagens[linhaAtual] + "<br>";
-
         linhaAtual++;
 
         if (linhaAtual >= mensagens.length) {
             clearInterval(intervalo);
         }
-
     }, 600);
-
 }
 
 window.addEventListener("load", () => {
-
     setTimeout(() => {
-
         escreverTerminal();
-
     }, 3200);
-
 });
+
 function abrirContato() {
     abrirJanela("contatoWindow");
 }
@@ -182,20 +171,18 @@ function fecharContato() {
 
 function copiarEmail() {
     const mensagem = document.getElementById("copyMessage");
-
-    navigator.clipboard.writeText("seuemail@email.com");
+    navigator.clipboard.writeText("battistini.t@gmail.com");
 
     if (mensagem) {
         mensagem.textContent = "E-mail copiado para a área de transferência.";
     }
 }
+
 function toggleMenu() {
     const menu = document.getElementById("startMenu");
-    menu.classList.toggle("hidden");
-}
-
-function abrirEntrevista() {
-    alert("ENTREVISTA.EXE em desenvolvimento");
+    if (menu) {
+        menu.classList.toggle("hidden");
+    }
 }
 
 function abrirContratacao() {
@@ -215,26 +202,8 @@ function fecharEntrevista() {
 }
 
 function mostrarResultadoEntrevista() {
-    document.getElementById("resultadoEntrevista").innerHTML =
-        "<br><strong>RESULTADO:</strong><br><br>APROVADA PARA A PRÓXIMA ETAPA ✔";
-}
-
-function mostrarMobile(secao) {
-    const conteudo = document.getElementById("mobileContent");
-
-    const textos = {
-        perfil: "<h3>PERFIL.EXE</h3><p>Sou Tatiana Battistini Teixeira, estudante de Engenharia de Software, em transição para a área de tecnologia.</p><p>Tenho interesse em desenvolvimento, banco de dados, lógica de programação e criação de soluções digitais.</p>",
-
-        projetos: "<h3>PROJETOS.EXE</h3><p><strong>BATTISTINI.EXE</strong></p><p>Portfólio interativo inspirado no Windows 95, desenvolvido com HTML, CSS e JavaScript.</p>",
-
-        data: "<h3>DATA_CORE.EXE</h3><p>Interesse em banco de dados, organização de informações, análise de dados e construção de soluções orientadas por dados.</p>",
-
-        stack: "<h3>STACK.EXE</h3><p>HTML, CSS, JavaScript, C, Git, GitHub, lógica de programação e banco de dados.</p>",
-
-        contato: "<h3>CONTATO.EXE</h3><p>E-mail: battistini.t@gmail.com</p><p>GitHub: TatianaBattistini</p>",
-
-        contratacao: "<h3>CONTRATACAO.EXE</h3><p>Processo analisado.</p><p><strong>CONTRATAÇÃO RECOMENDADA.</strong></p>"
-    };
-
-    conteudo.innerHTML = textos[secao];
+    const res = document.getElementById("resultadoEntrevista");
+    if (res) {
+        res.innerHTML = "<br><strong>RESULTADO:</strong><br><br>APROVADA PARA A PRÓXIMA ETAPA ✔️";
+    }
 }

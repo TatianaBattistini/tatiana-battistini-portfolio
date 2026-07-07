@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box;
+box-sizing: border-box;
 }
 
 body {
@@ -13,14 +13,7 @@ body {
     min-height: 100vh;
     padding: 40px;
     position: relative;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #00aaff 0%,
-            #0055aa 40%,
-            #001133 100%
-        );
+    background: radial-gradient(circle at center, #00aaff 0%, #0055aa 40%, #001133 100%);
 }
 
 .window {
@@ -37,6 +30,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: move;
+    user-select: none;
 }
 
 .title-bar button {
@@ -109,6 +104,7 @@ h2 {
     display: flex;
     gap: 20px;
     align-items: center;
+    z-index: 10000;
 }
 
 .clock {
@@ -150,8 +146,23 @@ h2 {
     outline: 1px dotted white;
 }
 
+.icon-img {
+    display: block;
+    font-size: 32px;
+    margin-bottom: 6px;
+    transition: all .15s ease;
+}
+
+.desktop-icon:hover .icon-img {
+    transform: scale(1.15);
+}
+
 .hidden {
-    display: none;
+    display: none !important;
+}
+
+.hidden-desktop {
+    display: none !important;
 }
 
 .profile-window {
@@ -161,17 +172,6 @@ h2 {
     left: 120px;
 }
 
-@keyframes openWindow {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
 .projects-window {
     width: 620px;
     position: absolute;
@@ -189,6 +189,7 @@ h2 {
 .project-card h3 {
     margin-top: 0;
 }
+
 .data-window {
     width: 640px;
     position: absolute;
@@ -213,6 +214,7 @@ h2 {
     margin-top: 0;
     color: #2f6b3f;
 }
+
 .stack-window {
     width: 550px;
     position: absolute;
@@ -241,88 +243,45 @@ h2 {
     background: #2f6b3f;
 }
 
-.fill80 {
-    width: 80%;
+.fill80 { width: 80%; }
+.fill60 { width: 60%; }
+.fill50 { width: 50%; }
+
+#bootScreen {
+    position: fixed;
+    inset: 0;
+    background: black;
+    color: #00ff66;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    font-family: "Courier New", monospace;
 }
 
-.fill60 {
-    width: 60%;
+.boot-content {
+    text-align: left;
+    line-height: 1.8;
 }
-
-.fill50 {
-    width: 50%;
-}
-
-.title-bar {
-    cursor: move;
-    user-select: none;
-}
-
-#bootScreen{
-    position:fixed;
-    inset:0;
-
-    background:black;
-
-    color:#00ff66;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    z-index:99999;
-
-    font-family:"Courier New", monospace;
-}
-
-.boot-content{
-    text-align:left;
-    line-height:1.8;
-}
-
-.hidden-desktop{
-    display:none;
-}
-/* ========================= */
-/* CRT EFFECT */
-/* ========================= */
 
 body::before {
     content: "";
-
     position: fixed;
     inset: 0;
-
     pointer-events: none;
-
-    background:
-        repeating-linear-gradient(
-            to bottom,
-            rgba(255,255,255,0.03),
-            rgba(255,255,255,0.03) 1px,
-            transparent 1px,
-            transparent 3px
-        );
-
+    background: repeating-linear-gradient(to bottom, rgba(255,255,255,0.03), rgba(255,255,255,0.03) 1px, transparent 1px, transparent 3px);
     z-index: 9998;
 }
 
 body::after {
     content: "";
-
     position: fixed;
     inset: 0;
-
     pointer-events: none;
-
-    background: radial-gradient(
-        circle,
-        transparent 60%,
-        rgba(0,0,0,0.25) 100%
-    );
-
+    background: radial-gradient(circle, transparent 60%, rgba(0,0,0,0.25) 100%);
     z-index: 9997;
 }
+
 .contact-window {
     width: 480px;
     position: absolute;
@@ -341,41 +300,22 @@ body::after {
     color: #2f6b3f;
     font-weight: bold;
 }
+
 .window:not(.hidden) {
     animation: windowOpen 0.22s ease-out;
 }
 
 @keyframes windowOpen {
-    0% {
-        transform: scale(0.85);
-        opacity: 0;
-    }
-
-    70% {
-        transform: scale(1.03);
-        opacity: 1;
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-.icon-img{
-    display:block;
-    font-size:32px;
-    margin-bottom:6px;
-
-    transition:all .15s ease;
+    0% { transform: scale(0.85); opacity: 0; }
+    70% { transform: scale(1.03); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
-.desktop-icon:hover .icon-img{
-    transform:scale(1.15);
+@keyframes openWindow {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
-.desktop-icon:hover{
-    background:rgba(255,255,255,0.08);
-}
 .start-menu {
     position: fixed;
     bottom: 48px;
@@ -399,14 +339,10 @@ body::after {
     background: #eee8d8;
     cursor: pointer;
 }
-.mobile-warning {
-    display: none;
-}
 
-.mobile-site {
-    display: none;
-}
-
+/* ========================= */
+/* ADAPTAÇÃO PARA MOBILE     */
+/* ========================= */
 @media (max-width: 768px) {
     h1 {
         font-size: 32px;
